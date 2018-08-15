@@ -1887,7 +1887,6 @@ def test_get_real_amount_open_trade(default_conf, mocker):
     assert freqtrade.get_real_amount(trade, order) == amount
 
 
-<<<<<<< HEAD
 def test_order_book_depth_of_market(default_conf, ticker, limit_buy_order, fee, markets, mocker,
                                     order_book_l2):
     default_conf['experimental']['check_depth_of_market']['enabled'] = True
@@ -2053,8 +2052,6 @@ def test_order_book_ask_strategy(default_conf, limit_buy_order, limit_sell_order
     assert freqtrade.handle_trade(trade) is True
 
 
-=======
->>>>>>> b34aa46... additional tests
 def test_startup_messages(default_conf, mocker):
     default_conf['dynamic_whitelist'] = 20
     freqtrade = get_patched_freqtradebot(mocker, default_conf)
