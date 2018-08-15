@@ -134,7 +134,7 @@ class FreqtradeBot(object):
                       f'*Strategy:* `{strategy_name}`'
         })
         if self.config.get('dynamic_whitelist', False):
-            top_pairs = 'top ' + str(self.config.get('dynamic_whitelist', False))
+            top_pairs = 'top ' + str(self.config.get('dynamic_whitelist', 20))
             specific_pairs = ''
         else:
             top_pairs = 'whitelisted'

@@ -116,13 +116,8 @@ class Exchange(object):
                 api.urls['api'] = api.urls['test']
                 logger.info("Enabled Sandbox API on %s", name)
             else:
-<<<<<<< HEAD
                 logger.warning(name, "No Sandbox URL in CCXT, exiting. "
                                      "Please check your config.json")
-=======
-                logger.warning(self._api.name, "No Sandbox URL in CCXT, exiting. "
-                                               "Please check your config.json")
->>>>>>> 2bc7a66... informative startup
                 raise OperationalException(f'Exchange {name} does not provide a sandbox api')
 
     def validate_pairs(self, pairs: List[str]) -> None:
