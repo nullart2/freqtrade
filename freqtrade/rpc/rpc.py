@@ -194,6 +194,7 @@ class RPC(object):
         profit_all_percent = []
         profit_closed_coin = []
         profit_closed_percent = []
+        closed_open_rates = []
         durations = []
 
         for trade in trades:
@@ -206,6 +207,7 @@ class RPC(object):
 
             if not trade.is_open:
                 profit_percent = trade.calc_profit_percent()
+                closed_open_rates.append(trade.calc_open_trade_price())
                 profit_closed_coin.append(trade.calc_profit())
                 profit_closed_percent.append(profit_percent)
             else:
@@ -231,7 +233,9 @@ class RPC(object):
 
         # Prepare data to display
         profit_closed_coin_sum = round(sum(profit_closed_coin), 8)
-        profit_closed_percent = round(nan_to_num(mean(profit_closed_percent)) * 100, 2)
+        closed_open_rates_sum = round(sum(closed_open_rates), 8)
+        #profit_closed_percent = round(nan_to_num(mean(profit_closed_percent)) * 100, 2)
+        profit_closed_percent = round(((profit_closed_coin_sum  / closed_open_rates_sum) * 100), 2)
         profit_closed_fiat = self._fiat_converter.convert_amount(
             profit_closed_coin_sum,
             stake_currency,
