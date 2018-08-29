@@ -141,7 +141,8 @@ class FreqtradeBot(object):
             specific_pairs = '\n' + ', '.join(self.config['exchange'].get('pair_whitelist', ''))
         self.rpc.send_msg({
             'type': RPCMessageType.STATUS_NOTIFICATION,
-            'status': f'Searching for {top_pairs} {stake_currency} highest volume pairs to buy and sell...'
+            'status': f'Searching for {top_pairs} {stake_currency} \
+                        highest volume pairs to buy and sell...'
                       f'{specific_pairs}'
         })
 
